@@ -8,8 +8,8 @@ Special thanks to [@ckoval7](https://github.com/ckoval7/) and his work on [kisSt
 
 ## Requirements
 
- - websockets
- - gpsd-py3
+- websockets
+- gpsd-py3
 
 ## Installing
 
