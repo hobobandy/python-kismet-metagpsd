@@ -8,6 +8,7 @@ Special thanks to [@ckoval7](https://github.com/ckoval7/) and his work on [kisSt
 
 ## Requirements
 
+- Python >=3.4
 - websockets
 - gpsd-py3
 
