@@ -12,11 +12,11 @@ Special thanks to [@ckoval7](https://github.com/ckoval7/) and his work on [kisSt
 # Installing
 
 ## Install using Pipenv
-    git clone https://github.com/krispymoose95/python-kismet-metagpsd
+    git clone https://github.com/hobobandy/python-kismet-metagpsd
     cd python-kismet-metagpsd && pipenv install
   
 ## Install using Pip
-    git clone https://github.com/krispymoose95/python-kismet-metagpsd
+    git clone https://github.com/hobobandy/python-kismet-metagpsd
     cd python-kismet-metagpsd && pip install -r requirements.txt
    
 # Usage

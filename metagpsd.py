@@ -1,8 +1,8 @@
 __version__ = "2022.1"
-__copyright__ = "2022, krispymoose95"
-__license__ = "GPL3"
-__author__ = "krispymoose95"
-__email__ = "krispymoose95@gmail.com"
+__copyright__ = "2022, hobobandy"
+__license__ = "MIT"
+__author__ = "hobobandy"
+__email__ = "hobobandy@gmail.com"
 __version_int__ = "202201"
 
 
