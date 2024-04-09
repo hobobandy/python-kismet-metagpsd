@@ -23,7 +23,6 @@ class MetaGPSD:
         self.exit()
     
     def exit(self):
-        logger.info("Exiting")
         self.exit_event.set()
     
     async def run_forever(self):
@@ -33,6 +32,7 @@ class MetaGPSD:
             except websockets.ConnectionClosed:
                 logger.warning("Connection to Kismet closed")
                 continue
+        logger.info("Exiting")
     
     async def main(self):
         try:
@@ -70,6 +70,7 @@ class MetaGPSD:
                         await asyncio.sleep(1)
         except ConnectionRefusedError:
             logger.error("Failed to connect; check Kismet is running, or host URI is valid. (host:port)")
+            self.exit()
         except websockets.exceptions.InvalidStatusCode as e:
             if e.status_code == 404:
                 logger.error("Kismet failed to find meta GPS name; check name matches the data source's metagps option.")
@@ -77,6 +78,7 @@ class MetaGPSD:
                 logger.error("Kismet rejected API key; check key is valid, and has admin or WEBGPS role.")
             else:
                 logger.exception(e)
+            self.exit()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -84,7 +86,7 @@ if __name__ == "__main__":
     required_args = parser.add_argument_group('required arguments')
     required_args.add_argument("--connect", dest="host_uri", required=True, help="address of kismet server (host:port)")
     required_args.add_argument("--metagps", dest="metagps", required=True, help="should match a data source's metagps option")
-    required_args.add_argument("--apikey", dest="apikey", required=True, help="requires admin or WEBGPS role")
+    required_args.add_argument("--apikey", dest="apikey", required=True, help="requires admin or WEBGPS (custom) role")
     # optional
     parser.add_argument("--ssl", dest="use_ssl", action='store_true', help="use secure connection")
     parser.add_argument("--debug", dest="debug", action='store_true', help="enable debug output")
