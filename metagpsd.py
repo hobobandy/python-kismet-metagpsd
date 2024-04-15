@@ -44,6 +44,8 @@ class MetaGPSD:
                     logger.info("Sending location updates")
                     while websocket and not self.exit_event.is_set():
                         # Poll gpsd for current location
+                        # Initiate location variable to "no fix" state
+                        gpsd_location = {"mode": 1, "lat": 0.0, "lon": 0.0, "alt": 0.0, "spd": 0.0}
                         for result in self.gpsdclient.dict_stream(filter=["TPV"]):
                             gpsd_location = result
                             break
